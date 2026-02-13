@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
+import CitySearch from "./CitySearch";
 
 const Home = function () {
     const apiKey = "5ed65535c7dde3c9591abce0c90ec36d";
@@ -88,7 +89,7 @@ const Home = function () {
                 <hr />
                 <h4 className="p-2">L'app per meteo più pazzerella che ci sia!</h4>
             </Alert>
-
+            <CitySearch />
             <div className="text-center mt-5">
                 <h2>Eccoti intanto il meteo di 5 principali città:</h2>
                 <h6>Che se non ci abiti probabilmente non te ne fregherà manco nulla...</h6>
