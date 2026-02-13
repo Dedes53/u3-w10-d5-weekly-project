@@ -7,6 +7,7 @@ import FooterComponent from "./component/FooterComponent";
 
 // component dinamici
 import Home from "./component/Home";
+import DetailCity from "./component/DetailCity";
 
 import PageNotFound from "./component/PageNotFound";
 
@@ -26,7 +27,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-
+          {/* per le card delle città */}
+          <Route path="/city/:cityName" element={<DetailCity />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
 

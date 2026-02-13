@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
 
 const Home = function () {
     const apiKey = "5ed65535c7dde3c9591abce0c90ec36d";
+    const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -37,9 +39,11 @@ const Home = function () {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     color: "white",
-                    minHeight: "250px"
+                    minHeight: "250px",
+                    cursor: "pointer"
                 }}
                 key={city.name}
+                onClick={() => navigate(`/city/${city.name}`)}
             >
                 <div className="card-body">
                     <h5 className="card-title fw-bold">{city.name}</h5>
