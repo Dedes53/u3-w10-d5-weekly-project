@@ -127,7 +127,7 @@ const DetailCity = function () {
                     .map((item, index) => {
                         const date = new Date(item.dt * 1000);
                         return (
-                            <div key={index} className="col-md-4 col-lg-2.5">
+                            <div key={index} className="col-md-4 col-lg-2 mx-auto">
                                 <div className="card text-center h-100">
                                     <div className="card-body">
                                         <h6 className="card-title">
