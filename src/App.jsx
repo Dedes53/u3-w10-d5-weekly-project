@@ -9,6 +9,7 @@ import FooterComponent from "./component/FooterComponent";
 import Home from "./component/Home";
 import CitySearch from "./component/CitySearch";
 import DetailCity from "./component/DetailCity";
+import HourlyMeteo from "./component/HourlyMeteo";
 
 import PageNotFound from "./component/PageNotFound";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/search" element={<CitySearch />} />
           {/* per le card delle città */}
           <Route path="/city/:cityName" element={<DetailCity />} />
+          <Route path="/hourly/:cityName" element={<HourlyMeteo />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
 

@@ -38,9 +38,11 @@
 
 import { useState } from "react";
 import { Container, Form, Button, Alert, Row, Col, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CitySearch = function () {
     const apiKey = "5ed65535c7dde3c9591abce0c90ec36d";
+    const navigate = useNavigate();
 
     const [cityInput, setCityInput] = useState("");
     const [loading, setLoading] = useState(false);
@@ -151,7 +153,15 @@ const CitySearch = function () {
                     {/* colonna sinistra - meteo corrente */}
                     <Col md={6} className="mb-4">
                         <h3 className="text-center mb-3">📍 Meteo Attuale</h3>
-                        <Card className="shadow">
+                        <Card className="shadow"
+                            style={{
+                                cursor: "pointer",
+                                transition: "all 0.2s"
+                            }}
+                            onClick={() => navigate(`/hourly/${currentWeather.name}`)}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+                        >
                             <Card.Body>
                                 <h4 className="text-center mb-3">
                                     {currentWeather.name}, {currentWeather.sys.country}
