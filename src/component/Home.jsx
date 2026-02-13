@@ -9,20 +9,55 @@ const Home = function () {
     const [error, setError] = useState(false);
     const [cities, setCities] = useState([]);
 
+    // oggetto er le immagini di sfondo delle card
+    // nomi in inglese, ma London non bastava..... maledetti 
+    const cityImages = {
+        "Rome": "https://assets.voxcity.com/uploads/blog_images/5-Things-You-Should-Know-About-Rome-Before-you-visit-image-main_original.jpg",
+        "City of London": "https://londra.io/wp-content/uploads/2021/10/Londra.jpg",
+        "Paris": "https://assets.voxcity.com/uploads/blog_images/paris-blog-updated_original.jpg",
+        "Tokyo": "https://reisetopia.de/wp-content/uploads/2023/01/Tokio-Japan-Bei-Nacht.jpeg",
+        "New York": "https://i.natgeofe.com/k/5b396b5e-59e7-43a6-9448-708125549aa1/new-york-statue-of-liberty.jpg"
+    };
+
     useEffect(() => {
         // eslint-disable-next-line react-hooks/immutability
         getMeteo();
     }, []);
 
     const getCityCard = function (city) {
+
+        const backgroundImage = cityImages[city.name] || "";
+
         return (
-            <div className="card" style={{ width: "18rem" }} key={city.name}>
+            <div
+                className="card"
+                style={{
+                    width: "18rem",
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    color: "white",
+                    minHeight: "250px"
+                }}
+                key={city.name}
+            >
                 <div className="card-body">
-                    <h5 className="card-title">{city.name}</h5>
+                    <h5 className="card-title fw-bold">{city.name}</h5>
                     <p className="card-text">Temperatura: {Math.round(city.main.temp - 273.15)}°C</p>
                     <p className="card-text">Condizioni: {city.weather[0].description}</p>
                 </div>
             </div>
+
+
+
+
+            // <div className="card" style={{ width: "18rem" }} key={city.name}>
+            //     <div className="card-body">
+            //         <h5 className="card-title">{city.name}</h5>
+            //         <p className="card-text">Temperatura: {Math.round(city.main.temp - 273.15)}°C</p>
+            //         <p className="card-text">Condizioni: {city.weather[0].description}</p>
+            //     </div>
+            // </div>
         );
     };
 
@@ -53,7 +88,7 @@ const Home = function () {
     };
 
     return (
-        <Container>
+        <Container className="mb-5">
             <Alert variant="warning" className="text-center mt-5 px-5">
                 <h2 className="p-3">Benvenuto nella Meteo App!!</h2>
                 <hr />
