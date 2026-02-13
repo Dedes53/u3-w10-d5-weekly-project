@@ -85,3 +85,12 @@ export const formatDate = (dateString) => {
     month: 'short',
   });
 };
+
+/**
+ * Capitalize first letter of a string
+ * @param {string} text - Text to capitalize
+ * @returns {string} Capitalized text
+ */
+export const capitalizeDescription = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};

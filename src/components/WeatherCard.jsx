@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap';
 import { getWeatherIconUrl } from '../utils/weatherApi';
-import { getWeatherComment, formatLocalTime } from '../utils/weatherHelpers';
+import { getWeatherComment, formatLocalTime, capitalizeDescription } from '../utils/weatherHelpers';
 import './WeatherCard.css';
 
 function WeatherCard({ weatherData, showComment = true }) {
@@ -18,8 +18,7 @@ function WeatherCard({ weatherData, showComment = true }) {
           className="weather-icon"
         />
         <div className="weather-description mb-2">
-          {weatherInfo.description.charAt(0).toUpperCase() + 
-           weatherInfo.description.slice(1)}
+          {capitalizeDescription(weatherInfo.description)}
         </div>
         <div className="temperature mb-2">
           {Math.round(main.temp)}°C

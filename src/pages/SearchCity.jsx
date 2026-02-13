@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card, Spinner, Alert } from 'react-bootstrap';
 import { getCurrentWeather, getForecast, getWeatherIconUrl } from '../utils/weatherApi';
-import { getWeatherComment, formatDate } from '../utils/weatherHelpers';
+import { getWeatherComment, formatDate, capitalizeDescription } from '../utils/weatherHelpers';
 import WeatherCard from '../components/WeatherCard';
 import './SearchCity.css';
 
@@ -151,8 +151,7 @@ function SearchCity() {
                         className="forecast-icon"
                       />
                       <div className="forecast-description">
-                        {day.weather[0].description.charAt(0).toUpperCase() + 
-                         day.weather[0].description.slice(1)}
+                        {capitalizeDescription(day.weather[0].description)}
                       </div>
                       <div className="forecast-temp">
                         {Math.round(day.main.temp)}°C
