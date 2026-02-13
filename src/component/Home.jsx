@@ -78,7 +78,7 @@ const Home = function () {
 
     return (
 
-        <Container className="mb-5">
+        <Container className="mb-5 main">
             <Alert variant="warning" className="text-center mt-5 px-5">
                 <h2 className="p-3">Benvenuto nella Meteo App!!</h2>
                 <hr />

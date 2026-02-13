@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // component fissi
 import NavbarComponent from "./component/NavbarComponent";
@@ -7,6 +7,10 @@ import FooterComponent from "./component/FooterComponent";
 
 // component dinamici
 import Home from "./component/Home";
+
+import PageNotFound from "./component/PageNotFound";
+
+
 function App() {
 
 
@@ -23,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
 
         <FooterComponent />
