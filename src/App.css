@@ -8,3 +8,15 @@
 .main {
   flex: 1;
 }
+
+.nav-banner {
+  background-image: url('/SfondoBanner.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 10px 10px;
+
+}
+
+.shadowed {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

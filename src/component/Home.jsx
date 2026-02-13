@@ -33,7 +33,7 @@ const Home = function () {
 
         return (
             <div
-                className="card"
+                className="card shadowed"
                 style={{
                     width: "18rem",
                     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
@@ -84,8 +84,8 @@ const Home = function () {
     return (
 
         <Container className="mb-5 main">
-            <Alert variant="warning" className="text-center mt-5">
-                <h2 className="p-3">Benvenuto nella Meteo App!!</h2>
+            <Alert variant="success" className="text-center mt-5">
+                <h2 className="p-3">Benvenuto!!</h2>
                 <hr />
                 <h4 className="p-2">L'app per meteo più pazzerella che ci sia!</h4>
             </Alert>

@@ -9,7 +9,7 @@ const CitySearch = function () {
     return (
         <Container className="mb-5 main text-center mt-5">
             <Row>
-                <Col md={6} className="mx-auto border border-1 boxshadow p-4 rounded">
+                <Col md={6} className="mx-auto border border-1 shadowed p-4 rounded">
                     <form action=""
                         onSubmit={(e) => {
                             e.preventDefault();
