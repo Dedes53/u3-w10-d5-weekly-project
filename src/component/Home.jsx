@@ -60,7 +60,7 @@ const Home = function () {
             >
                 <div className="card-body">
                     <h5 className="card-title fw-bold">{city.name}</h5>
-                    <p className="card-text">Temperatura: {Math.round(city.main.temp - 273.15)}°C</p>
+                    <p className="card-text">Temperatura: {Math.round(city.main.temp)}°C</p>
                     <p className="card-text">Condizioni: {city.weather[0].description}</p>
                 </div>
             </div>
@@ -95,11 +95,7 @@ const Home = function () {
     return (
 
         <Container className="mb-5 main">
-            <Alert variant="success" className="text-center mt-5">
-                <h2 className="p-3">Benvenuto!!</h2>
-                <hr />
-                <h4 className="p-2">L'app per meteo più pazzerella che ci sia!</h4>
-            </Alert>
+
             <CitySearch />
             <div className="text-center mt-5">
                 <h2>Eccoti intanto il meteo di 5 principali città:</h2>
