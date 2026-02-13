@@ -1,0 +1,126 @@
+.search-container {
+  margin-top: 100px;
+  min-height: calc(100vh - 100px);
+  padding: 2rem 1rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  border-radius: 10px;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.search-button {
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #495057;
+  margin-bottom: 1.5rem;
+}
+
+.forecast-card {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+}
+
+.forecast-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-date {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.forecast-description {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-temp {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.forecast-details {
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+.forecast-comment {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem;
+  font-style: italic;
+  backdrop-filter: blur(10px);
+}
+
+.empty-state {
+  margin-top: 4rem;
+  padding: 3rem;
+}
+
+.empty-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-text {
+  font-size: 1.3rem;
+  color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .search-form {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
