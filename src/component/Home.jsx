@@ -47,17 +47,6 @@ const Home = function () {
                     <p className="card-text">Condizioni: {city.weather[0].description}</p>
                 </div>
             </div>
-
-
-
-
-            // <div className="card" style={{ width: "18rem" }} key={city.name}>
-            //     <div className="card-body">
-            //         <h5 className="card-title">{city.name}</h5>
-            //         <p className="card-text">Temperatura: {Math.round(city.main.temp - 273.15)}°C</p>
-            //         <p className="card-text">Condizioni: {city.weather[0].description}</p>
-            //     </div>
-            // </div>
         );
     };
 
@@ -88,6 +77,7 @@ const Home = function () {
     };
 
     return (
+
         <Container className="mb-5">
             <Alert variant="warning" className="text-center mt-5 px-5">
                 <h2 className="p-3">Benvenuto nella Meteo App!!</h2>
@@ -100,6 +90,7 @@ const Home = function () {
                 <h6>Che se non ci abiti probabilmente non te ne fregherà manco nulla...</h6>
             </div>
 
+            {/* contenuto dinamico in base a risultato fetch */}
             {loading ? (
                 <>
                     <div className="text-center mt-5">
@@ -117,6 +108,7 @@ const Home = function () {
                     {cities.map(city => getCityCard(city))}
                 </div>
             )}
+
         </Container>
     );
 };
