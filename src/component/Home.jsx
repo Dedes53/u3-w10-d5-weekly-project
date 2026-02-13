@@ -15,16 +15,25 @@ const Home = function () {
     // oggetto er le immagini di sfondo delle card
     // nomi in inglese, ma London non bastava..... maledetti 
     const cityImages = {
-        "Rome": "https://assets.voxcity.com/uploads/blog_images/5-Things-You-Should-Know-About-Rome-Before-you-visit-image-main_original.jpg",
-        "City of London": "https://londra.io/wp-content/uploads/2021/10/Londra.jpg",
-        "Paris": "https://assets.voxcity.com/uploads/blog_images/paris-blog-updated_original.jpg",
+        "Roma": "https://assets.voxcity.com/uploads/blog_images/5-Things-You-Should-Know-About-Rome-Before-you-visit-image-main_original.jpg",
+        "Londra": "https://londra.io/wp-content/uploads/2021/10/Londra.jpg",
+        "Parigi": "https://assets.voxcity.com/uploads/blog_images/paris-blog-updated_original.jpg",
         "Tokyo": "https://reisetopia.de/wp-content/uploads/2023/01/Tokio-Japan-Bei-Nacht.jpeg",
         "New York": "https://i.natgeofe.com/k/5b396b5e-59e7-43a6-9448-708125549aa1/new-york-statue-of-liberty.jpg"
     };
 
+    // per ricercare tramite la nazione
+    const cityQueries = [
+        { name: "Roma", query: "Rome,IT" },
+        { name: "Londra", query: "City of London,GB" },
+        { name: "Parigi", query: "Paris,FR" },
+        { name: "Tokio", query: "Tokyo,JP" },
+        { name: "New York", query: "New York,US" }
+    ];
+
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/immutability
         getMeteo();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const getCityCard = function (city) {
@@ -41,10 +50,13 @@ const Home = function () {
                     backgroundPosition: "center",
                     color: "white",
                     minHeight: "250px",
-                    cursor: "pointer"
+                    cursor: "pointer",
+                    transition: "transform 0.2s"
                 }}
                 key={city.name}
                 onClick={() => navigate(`/city/${city.name}`)}
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
             >
                 <div className="card-body">
                     <h5 className="card-title fw-bold">{city.name}</h5>
@@ -56,17 +68,16 @@ const Home = function () {
     };
 
     const getMeteo = async function () {
-        const cityNames = ["Roma", "Londra", "Parigi", "Tokio", "New York"];
 
         try {
             // DEVO ASPETTARE TUTTE LE FEEETCH
-            const promises = cityNames.map(city =>
-                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+            const promises = cityQueries.map(cityObj =>
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityObj.query}&appid=${apiKey}&lang=it&units=metric`)
                     .then(res => {
                         if (res.ok) {
                             return res.json();
                         }
-                        throw new Error(`Errore nel recupero dei dati per ${city}`);
+                        throw new Error(`Errore nel recupero dei dati per ${cityObj.name}`);
                     })
             );
 
